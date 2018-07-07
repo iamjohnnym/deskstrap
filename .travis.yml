@@ -1,5 +1,7 @@
 # Test on *Nix
 os:
   - osx
+before_install:
+  - rm -rf /Library/Developer/CommandLineTools
 script:
   - bash bin/deskstrap.sh
