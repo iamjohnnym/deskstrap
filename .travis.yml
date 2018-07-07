@@ -1,0 +1,5 @@
+# Test on *Nix
+os:
+  - osx
+script:
+  - bash bin/deskstrap.sh
