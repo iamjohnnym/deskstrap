@@ -16,6 +16,11 @@ echo -n "Linking Brewfile to homedir..."
 ln -s ./brew/Brewfile ~/Brewfile
 echo "DONE"
 
+# Moving to homedir
+echo -n "Moving to homedir..."
+cd ~
+echo "DONE"
+
 # Install applications with Brew
 echo -n "Installing applications from Brewfile..."
 brew bundle > /dev/null
