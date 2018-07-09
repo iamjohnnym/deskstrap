@@ -8,17 +8,20 @@ GO_BACK=$(pwd)
 
 # Symlink Brewfile to homedir
 echo -n "Backing up and copying Brewfile to homedir..."
-backup_and_copy Brewfile brew
+FILE_LIST=( Brewfile )
+backup_and_copy ${FILE_LIST} brew
 echo "DONE"
 
 # Symlink dotfiles
 echo -n "Backing up and copying dotfiles..."
-backup_and_copy (bash_profile bashrc bash_aliases) dotfiles
+FILE_LIST=( bash_profile bashrc bash_aliases )
+backup_and_copy ${FILE_LIST} dotfiles
 echo "DONE"
 
 # Symlink Pipfile to homedir
 echo -n "Backing up and copying Pipfiles to homedir..."
-backup_and_copy (Pipfile Pipfile.lock) python
+FILE_LIST=( Pipfile Pipfile.lock )
+backup_and_copy ${FILE_LIST} python
 echo "DONE"
 
 # Install Command Line Tools
