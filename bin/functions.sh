@@ -14,7 +14,7 @@ copy_file () {
 backup_and_copy () {
     FILE_LIST=${1}
     SOURCE_DIR=${2}
-    for FILE_NAME in ${FILE_LIST} ; do
+    for FILE_NAME in "${FILE_LIST[@]}" ; do
         backup_file ${FILE_NAME}
         copy_file ${SOURCE_DIR} ${FILE_NAME}
     done
