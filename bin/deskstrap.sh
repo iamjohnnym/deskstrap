@@ -11,4 +11,4 @@ xcode-select --install
 ln -s ./brew/Brewfile ~/Brewfile
 
 # Install applications with Brew
-brew install
+brew bundle
