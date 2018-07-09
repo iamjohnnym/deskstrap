@@ -1,0 +1,2 @@
+alias updatedb='sudo /usr/libexec/locate.updatedb'
+alias whereami='curl ifconfig.co'

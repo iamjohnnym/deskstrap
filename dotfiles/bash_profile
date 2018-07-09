@@ -1,0 +1,34 @@
+# .bash_profile
+export BASH_CONF="bash_profile"
+
+# Set variable for RAM usage, used in $PS1
+if [ "$(uname -a | awk -F' ' '{print $1}')" == 'Darwin' ] ; then
+    aram () {
+        top -l 1 -s 0 | grep PhysMem | sed 's/, /\n         /g' | awk -F' ' '{print $2}'
+    }
+else
+    aram () {
+        free -m | awk '{print $4}' | head -2 | tail -1;
+    }
+fi
+
+# Configure PS1
+PS1='\[\033[0;33m\]\t $(aram) \[\033[0;32m\][\u@\h \W]$ \[\033[0;37m\]'
+
+# source .bashrc file
+if [ -f "/Users/$(whoami)/.bashrc" ]; then
+    source ~/.bashrc
+fi
+
+# Source bash aliases
+if [ -f "/Users/$(whoami)/.bash_aliases" ] ; then
+    source ~/.bash_aliases
+fi
+
+# Auto complete brew commands
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion
+fi
+
+# Set Bash History Timestamp
+export HISTTIMEFORMAT="%d/%m/%y %T "
