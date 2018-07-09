@@ -5,22 +5,27 @@ GO_BACK=$(pwd)
 
 # Install Command Line Tools
 echo -n "Installing XCode Command Line Tools..."
-xcode-select --install > /dev/null
+xcode-select --install
 echo "DONE"
 
 # Install Homebrew
 echo -n "Installing Brew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /dev/null
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 echo "DONE"
 
 # Symlink Brewfile to homedir
 echo -n "Linking Brewfile to homedir..."
-ln -s ./brew/Brewfile ~/Brewfile
+for FILE_NAME in Brewfile ; do
+    if [ -f "/Users/$(whoami)/.${FILE_NAME}" ] ; then
+        mv ~/.${FILE_NAME}{,.bak}
+    fi
+    cp ./brew/${FILE_NAME} ~/.${FILE_NAME}
+done
 echo "DONE"
 
 # Install applications with Brew
 echo -n "Installing applications from Brewfile..."
-cd ./brew/ && brew bundle > /dev/null && cd ${GO_BACK}
+cd ./brew/ && brew bundle && cd ${GO_BACK}
 echo "DONE"
 
 # Install pipenv
@@ -30,8 +35,12 @@ echo "DONE"
 
 # Symlink Pipfile to homedir
 echo -n "Installing pipenv on system..."
-ln -s ./python/Pipfile ~/Pipfile
-ln -s ./python/Pipfile.lock ~/Pipfile.lock
+for FILE_NAME in Pipfile Pipfile.lock ; do
+    if [ -f "/Users/$(whoami)/.${FILE_NAME}" ] ; then
+        mv ~/.${FILE_NAME}{,.bak}
+    fi
+    cp ./python/${FILE_NAME} ~/.${FILE_NAME}
+done
 echo "DONE"
 
 # Set up python environment
@@ -41,11 +50,12 @@ echo "DONE"
 
 # Symlink dotfiles
 echo -n "Symlinking dotfiles..."
-mv ~/.bash_profile{,.bak}
-mv ~/.bashrc{,.bak}
-ln -s ./dotfiles/bash_aliases ~/.bash_aliases
-ln -s ./dotfiles/bash_profile ~/.bash_profile
-ln -s ./dotfiles/bashrc ~/.bashrc
+for FILE_NAME in bash_profile bashrc bash_aliases ; do
+    if [ -f "/Users/$(whoami)/.${FILE_NAME}" ] ; then
+        mv ~/.${FILE_NAME}{,.bak}
+    fi
+    cp ./dotfiles/${FILE_NAME} ~/.${FILE_NAME}
+done
 echo "DONE"
 
 # Copy VSCode settings
