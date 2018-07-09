@@ -20,6 +20,6 @@ echo "DONE"
 
 # Install applications with Brew
 echo -n "Installing applications from Brewfile..."
-cd ~ && brew bundle > /dev/null && cd ${GO_BACK}
+cd ./brew/ && brew bundle > /dev/null && cd ${GO_BACK}
 echo "DONE"
 
