@@ -2,13 +2,21 @@
 
 
 # Install Command Line Tools
-xcode-select --install
+echo -n "Installing XCode Command Line Tools..."
+xcode-select --install > /dev/null
+echo "DONE"
 
 # Install Homebrew
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+echo -n "Installing Brew..."
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /dev/null
+echo "DONE"
 
 # Symlink Brewfile
+echo -n "Linking Brewfile to homedir..."
 ln -s ./brew/Brewfile ~/Brewfile
+echo "DONE"
 
 # Install applications with Brew
-brew bundle
+echo -n "Installing applications from Brewfile..."
+brew bundle > /dev/null
+echo "DONE"
