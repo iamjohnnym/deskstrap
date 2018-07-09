@@ -41,12 +41,14 @@ echo "DONE"
 
 # Symlink dotfiles
 echo -n "Symlinking dotfiles..."
+mv ~/.bash_profile{,.bak}
+mv ~/.bashrc{,.bak}
 ln -s ./dotfiles/bash_aliases ~/.bash_aliases
 ln -s ./dotfiles/bash_profile ~/.bash_profile
 ln -s ./dotfiles/bashrc ~/.bashrc
 echo "DONE"
 
-# Set up python environment
-echo -n "Setting up python environment..."
-cp ./vscode/settings.json "~/Library/Application Support/Code/User/settings.json"
+# Copy VSCode settings
+echo -n "Copying vscode settings..."
+cp ./vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 echo "DONE"
