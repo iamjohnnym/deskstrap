@@ -4,4 +4,7 @@ os:
 before_install:
   - sudo rm -rf /Library/Developer/CommandLineTools
 script:
+  - pwd
+  - whoami
+  - ls -al
   - bash bin/deskstrap.sh
