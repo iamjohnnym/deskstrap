@@ -1,0 +1,27 @@
+{
+    "vim.disableAnnoyingNeovimMessage": true,
+    "files.autoSave": "onFocusChange",
+    "editor.fontFamily": "'Courier New', monospace",
+    "editor.tabCompletion": true,
+    "editor.minimap.maxColumn": 80,
+    "python.linting.pylintArgs": [
+        "--disable=C0111"
+    ],
+    "git.confirmSync": false,
+    "workbench.startupEditor": "none",
+    "workbench.colorTheme": "Default High Contrast",
+    "window.restoreFullscreen": true,
+    "files.trimTrailingWhitespace": true,
+    "files.insertFinalNewline": true,
+    "markdown.preview.fontFamily": "'Courier New', monospace",
+    "terminal.external.osxExec": "iTerm.app",
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.scrollback": 5000,
+    "python.unitTest.pyTestEnabled": true,
+    "python.unitTest.pyTestArgs": [
+        "-v",
+        "--cov"
+    ],
+    "git.enabled": true,
+    "docker.enableLinting": true
+}
