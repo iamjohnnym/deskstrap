@@ -8,3 +8,6 @@ script:
   - whoami
   - ls -al
   - bash bin/deskstrap.sh
+  - pwd
+  - whoami
+  - ls -al
