@@ -2,9 +2,19 @@
 
 *Deskstrap* is my desktop bootstrapper for OSX.  I tend to want to start fresh more often than I care to admit.  This usually means that I'll spend a few hours getting things peachy.  Additionally, my personal vs my work machine are vastly different from the core usability part.  This aims to reduce the differences and time needed when moving into a new machine.
 
-## Prerequisites:
+## Prerequisites
 
-Ability to use the terminal
+Ability to use the terminal and `sudo`
+
+## Installation
+
+Simply clone the repo, move into it, execute the `deskstrap.sh` command.
+
+```bash
+git clone https://github.com/iamjohnnym/deskstrap.git ~/deskstrap
+cd ~/deskstrap
+sudo bash ./bin/deskstrap.sh
+```
 
 ## Features
 
