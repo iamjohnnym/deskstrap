@@ -8,6 +8,14 @@ name = "pypi"
 awscli = "*"
 
 [dev-packages]
+nose = "*"
+"flake8" = "*"
+pytest-cov = "*"
+bandit = "*"
+codacy-coverage = "*"
+pytest-selenium = "*"
+Flask-Testing = "*"
+PyYAML = "*"
 
 [requires]
 python_version = "2.7"
