@@ -8,14 +8,16 @@ backup_file () {
 copy_file () {
     SOURCE_DIR=${1}
     FILE_NAME=${2}
-    cp ./${SOURCE_DIR}/${FILE_NAME} ~/.${FILE_NAME}
+    PREFIX=${3}
+    cp ./${SOURCE_DIR}/${FILE_NAME} ~/${PREFIX}${FILE_NAME}
 }
 
 backup_and_copy () {
     FILE_LIST=${1}
     SOURCE_DIR=${2}
+    PREFIX=${3}
     for FILE_NAME in "${FILE_LIST[@]}" ; do
         backup_file ${FILE_NAME}
-        copy_file ${SOURCE_DIR} ${FILE_NAME}
+        copy_file ${SOURCE_DIR} ${FILE_NAME} ${PREFIX}
     done
 }
