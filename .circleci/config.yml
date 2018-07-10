@@ -1,0 +1,27 @@
+# .circleci/config.yml
+version: 2
+jobs:
+  build-and-test:
+    macos:
+      xcode: "9.3"
+    working_directory: /Users/iamjohnnym/deskstrap
+    environment:
+      FL_OUTPUT_DIR: output
+
+    steps:
+      - checkout
+      - run:
+          name: Run Deskstrap
+          command: |
+            sudo ./bin/deskstrap.sh
+
+      - store_test_results:
+          path: output/scan
+      - store_artifacts:
+          path: output
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build-and-test
