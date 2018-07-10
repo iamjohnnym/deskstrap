@@ -35,7 +35,8 @@ echo -n "Installing Brew..."
 echo "DONE"
 
 # Install applications with Brew
-echo -n "Installing applications from Brewfile..."
+echo -n "Updating Brew and Installing applications from Brewfile..."
+brew update
 cd ./brew/ && brew bundle && cd ${GO_BACK}
 echo "DONE"
 
