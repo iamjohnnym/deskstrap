@@ -6,19 +6,19 @@ source ./bin/functions.sh
 # GLOBALS
 GO_BACK=$(pwd)
 
-# Symlink Brewfile to homedir
+# Backup and copy Brewfile to homedir
 echo -n "Backing up and copying Brewfile to homedir..."
 FILE_LIST=( Brewfile )
 backup_and_copy ${FILE_LIST} brew ''
 echo "DONE"
 
-# Symlink dotfiles
+# Backup and copy dotfiles
 echo -n "Backing up and copying dotfiles..."
 FILE_LIST=( bash_profile bashrc bash_aliases )
 backup_and_copy ${FILE_LIST} dotfiles '.'
 echo "DONE"
 
-# Symlink Pipfile to homedir
+# Backup and copy Pipfile to homedir
 echo -n "Backing up and copying Pipfiles to homedir..."
 FILE_LIST=( Pipfile Pipfile.lock )
 backup_and_copy ${FILE_LIST} python ''
