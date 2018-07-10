@@ -42,7 +42,7 @@ echo "DONE"
 
 # Set up python environment
 echo -n "Setting up python environment..."
-cd ~ && pipenv install && cd ${GO_BACK}
+LANG="en_US.UTF-8" cd ~ && pipenv install && cd ${GO_BACK}
 echo "DONE"
 
 # Copy VSCode settings
