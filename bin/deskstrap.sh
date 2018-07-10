@@ -37,7 +37,7 @@ echo "DONE"
 # Install applications with Brew
 echo -n "Updating Brew and Installing applications from Brewfile..."
 brew update
-cd ./brew/ && brew bundle && cd ${GO_BACK}
+cd ~ && brew bundle && cd ${GO_BACK}
 echo "DONE"
 
 # Set up python environment
@@ -47,5 +47,6 @@ echo "DONE"
 
 # Copy VSCode settings
 echo -n "Copying vscode settings..."
+mkdir -p ~/Library/Application\ Support/Code/User
 cp ./vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 echo "DONE"
