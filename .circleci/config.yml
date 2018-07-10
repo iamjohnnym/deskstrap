@@ -13,6 +13,11 @@ jobs:
           name: Run Deskstrap
           command: |
             ./bin/deskstrap.sh
+      - run:
+          name: list home dir
+          command: |
+            ls -al ~
+
 
       - store_test_results:
           path: output/scan
