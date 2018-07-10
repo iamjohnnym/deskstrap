@@ -20,7 +20,9 @@ sudo bash ./bin/deskstrap.sh
 
 - Brew
 - Pipenv
-- Dotfiles
+- Profile dotfiles
+- VSCode
+- Vundle
 
 ## Brew
 
@@ -68,5 +70,18 @@ Pipenv is a really cool python manager.  Instead of multiple `requirements.txt` 
 - boto3
 - awscli
 
+#### Dev Packages
+- nose
+- flake8
+- pytest-cov
+- bandit
+- codacy-coverage
+- pytest-selenium
+- Flask-Testing
+- PyYAML
+
 ## VSCode
 A usersettings file is maintained and copied over on `deskstrap`.
+
+## Vundle
+Vundle is a plugin manager for `vim`.  Its nifty and a recommended must have for `vim` lovers.  The included `vimrc` file is mixing the best of `vundle` with the best of `vim`
