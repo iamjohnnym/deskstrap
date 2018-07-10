@@ -1,0 +1,5 @@
+# Set Lang
+export LANG="en_US.UTF-8"
+
+# Set Bash History Timestamp
+export HISTTIMEFORMAT="%d/%m/%y %T "
