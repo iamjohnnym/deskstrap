@@ -358,19 +358,23 @@ function! <SID>BufcloseCloseIt()
 endfunction
 
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Vundle Packages
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'nvie/vim-flake8'
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-lua-ftplugin'
-Bundle 'leafo/moonscript-vim'
-Bundle 'gkz/vim-ls'
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'scrooloose/syntastic'
+Plugin 'scrooloose/nerdtree'
+Plugin 'nvie/vim-flake8'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-lua-ftplugin'
+Plugin 'leafo/moonscript-vim'
+Plugin 'gkz/vim-ls'
 
 syntax enable
 filetype plugin indent on
