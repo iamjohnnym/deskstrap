@@ -3,7 +3,7 @@ version: 2
 jobs:
   build-and-test:
     macos:
-      xcode: "9.3"
+      xcode: "9.3.0"
     working_directory: /Users/iamjohnnym/deskstrap
     environment:
       FL_OUTPUT_DIR: output
