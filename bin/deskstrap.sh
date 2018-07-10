@@ -12,10 +12,16 @@ FILE_LIST=( Brewfile )
 backup_and_copy ${FILE_LIST} brew ''
 echo "DONE"
 
-# Backup and copy dotfiles
-echo -n "Backing up and copying dotfiles..."
+# Backup and copy profile
+echo -n "Backing up and copying profile..."
 FILE_LIST=( bash_profile bashrc bash_aliases )
-backup_and_copy ${FILE_LIST} dotfiles '.'
+backup_and_copy ${FILE_LIST} profile '.'
+echo "DONE"
+
+# Backup and copy vim
+echo -n "Backing up and copying vim..."
+FILE_LIST=( vimrc )
+backup_and_copy ${FILE_LIST} vim '.'
 echo "DONE"
 
 # Backup and copy Pipfile to homedir
@@ -49,4 +55,14 @@ echo "DONE"
 echo -n "Copying vscode settings..."
 mkdir -p ~/Library/Application\ Support/Code/User
 cp ./vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+echo "DONE"
+
+# Clone vundle
+echo -n "Cloning Vundle for Vim..."
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+echo "DONE"
+
+# Install vim vundle plugins
+echo -n "Installing vim vundle plugins..."
+vim +PluginInstall +qall
 echo "DONE"
