@@ -5,6 +5,7 @@ source ./bin/functions.sh
 
 # GLOBALS
 GO_BACK=$(pwd)
+HOSTNAME=icingdeath
 
 # Backup and copy Brewfile to homedir
 echo -n "Backing up and copying Brewfile to homedir..."
@@ -37,18 +38,21 @@ echo "DONE"
 
 # Install Homebrew
 echo -n "Installing Brew..."
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+if [ -x "$(command -v brew)" ]; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+else
+    brew update
+fi
 echo "DONE"
 
 # Install applications with Brew
 echo -n "Updating Brew and Installing applications from Brewfile..."
-brew update
 cd ~ && brew bundle && cd ${GO_BACK}
 echo "DONE"
 
 # Set up python environment
 echo -n "Setting up python environment..."
-LANG="en_US.UTF-8" cd ~ && pipenv install && cd ${GO_BACK}
+LANG="en_US.UTF-8"; cd ~ && pipenv install && cd ${GO_BACK}
 echo "DONE"
 
 # Copy VSCode settings
@@ -65,4 +69,15 @@ echo "DONE"
 # Install vim vundle plugins
 echo -n "Installing vim vundle plugins..."
 vim +PluginInstall +qall
+echo "DONE"
+
+# Set Hostname
+echo -n "Set hostname..."
+# Set hostname
+sudo scutil --set HostName ${HOSTNAME}
+# This is the name usable on the local network, for example myMac.local.
+sudo scutil --set LocalHostName ${HOSTNAME}.local
+# This is the user-friendly computer name you see in Finder, for example myMac.
+sudo scutil --set ComputerName ${HOSTNAME}
+dscacheutil -flushcache
 echo "DONE"
