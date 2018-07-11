@@ -1,2 +1,6 @@
+# Update the localdb so you can use locate
 alias updatedb='sudo /usr/libexec/locate.updatedb'
+# Get my current IP Address
 alias whereami='curl ifconfig.co'
+# Shorthand for listing everything in a dir in asd order.
+alias ll='ls -haltr'

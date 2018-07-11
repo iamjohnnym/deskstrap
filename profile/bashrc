@@ -1,5 +1,4 @@
-# Set Lang
-export LANG="en_US.UTF-8"
-
-# Set Bash History Timestamp
-export HISTTIMEFORMAT="%d/%m/%y %T "
+# source .bashrc file
+if [ -f "/Users/$(whoami)/.bash_profile" ]; then
+    source ~/.bash_profile
+fi

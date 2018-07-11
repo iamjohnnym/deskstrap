@@ -15,11 +15,6 @@ fi
 # Configure PS1
 PS1='\[\033[0;33m\]\t $(aram) \[\033[0;32m\][\u@\h \W]$ \[\033[0;37m\]'
 
-# source .bashrc file
-if [ -f "/Users/$(whoami)/.bashrc" ]; then
-    source ~/.bashrc
-fi
-
 # Source bash aliases
 if [ -f "/Users/$(whoami)/.bash_aliases" ] ; then
     source ~/.bash_aliases
@@ -29,3 +24,9 @@ fi
 if [ -f $(brew --prefix)/etc/bash_completion ]; then
     source $(brew --prefix)/etc/bash_completion
 fi
+
+# Set Lang
+export LANG="en_US.UTF-8"
+
+# Set Bash History Timestamp
+export HISTTIMEFORMAT="%d/%m/%y %T "
