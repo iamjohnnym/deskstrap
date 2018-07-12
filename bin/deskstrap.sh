@@ -6,6 +6,9 @@ source ./bin/functions.sh
 # GLOBALS
 GO_BACK=$(pwd)
 HOSTNAME=icingdeath
+# 32 is not very large.  100 is very large.
+DOCKSIZE=32
+
 
 # Backup and copy Brewfile to homedir
 echo -n "Backing up and copying Brewfile to homedir..."
@@ -43,6 +46,9 @@ if [ -x "$(command -v brew)" ]; then
 else
     brew update
 fi
+# This allows the installations of additional packages that are not part of
+# core
+brew tap homebrew/cask-versions
 echo "DONE"
 
 # Install applications with Brew
@@ -75,9 +81,12 @@ echo "DONE"
 echo -n "Set hostname..."
 # Set hostname
 sudo scutil --set HostName ${HOSTNAME}
-# This is the name usable on the local network, for example myMac.local.
-sudo scutil --set LocalHostName ${HOSTNAME}.local
 # This is the user-friendly computer name you see in Finder, for example myMac.
 sudo scutil --set ComputerName ${HOSTNAME}
 dscacheutil -flushcache
+echo "DONE"
+
+# Set Docksize to 32
+echo -n "Setting docksize to ${DOCKSIZE}..."
+defaults write com.apple.dock tilesize -int ${DOCKSIZE}; killall Dock
 echo "DONE"
