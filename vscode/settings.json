@@ -9,7 +9,7 @@
     ],
     "git.confirmSync": false,
     "workbench.startupEditor": "none",
-    "workbench.colorTheme": "Default High Contrast",
+    "workbench.colorTheme": "Default Dark",
     "window.restoreFullscreen": true,
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
