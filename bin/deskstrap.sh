@@ -90,3 +90,14 @@ echo "DONE"
 echo -n "Setting docksize to ${DOCKSIZE}..."
 defaults write com.apple.dock tilesize -int ${DOCKSIZE}; killall Dock
 echo "DONE"
+
+# Quit Printer app after job completes
+echo -n "Setting Printer app to automatically quit when the print jobs complete..."
+defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
+echo "DONE"
+
+# Disable smart quotes and smart dashes
+echo -n "Disabing smartquotes..."
+defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+echo "DONE"
